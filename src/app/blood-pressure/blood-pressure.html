@@ -1,0 +1,41 @@
+<h1>Blutdruck Eingabe</h1>
+
+<form (ngSubmit)="onSubmit()" #bloodForm="ngForm">
+<label for="systolic">Systolisch:</label>
+<input type="number" id="systolic" name="systolic" [(ngModel)]="entry.systolic" required min="50" max="250" />
+
+<label for="diastolic">Diastolisch:</label>
+<input type="number" id="diastolic" name="diastolic" [(ngModel)]="entry.diastolic" required min="30" max="150" />
+
+<label for="pulse">Puls:</label>
+<input type="number" id="pulse" name="pulse" [(ngModel)]="entry.pulse" required min="30" max="200" />
+
+    <button type="submit" [disabled]="!bloodForm.form.valid">
+        {{ editMode ? 'Änderungen speichern' : 'Speichern' }}
+    </button>
+    <button type="button" *ngIf="editMode" (click)="cancelEdit()">Abbrechen</button>
+</form>
+
+<h2>Gespeicherte Werte</h2>
+    <div *ngIf="entries.length > 0">
+        Durchschnitt Systolisch: {{ avgSystolic }} Durchschnitt Diastolisch: {{ avgDiastolic }} Durchschnitt Puls: {{ avgPulse }}
+        
+    </div>
+<ul>
+  <li *ngFor="let e of entries; let i = index" class="entry-row">
+    <div class="entry-text">
+      am: {{ e.timestamp }},
+      Systolisch: {{ e.systolic }},
+      Diastolisch: {{ e.diastolic }},
+      Puls: {{ e.pulse }}
+    </div>
+    <div class="entry-actions">
+      <button class="icon-button edit" (click)="editEntry(i)" title="Bearbeiten">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="icon-button delete" (click)="deleteEntry(i)" title="Löschen">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </li>
+</ul>

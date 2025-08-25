@@ -1,0 +1,153 @@
+/*:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f8fa;
+  padding: 30px;
+  color: #333; 
+  box-sizing: border-box;
+} */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px;
+  background: #f5f8fa;
+  color: #333;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+
+
+form {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80vw;          /* 80% der Viewport-Breite */
+  max-width: 700px;     /* Maximalbreite für große Bildschirme */
+  margin: 0 auto 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 80vw;           /* 80% der Viewport-Breite */
+  max-width: 700px;      /* Maximalbreite */
+  min-width: 320px;      /* Minimum für kleine Geräte */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+form label {
+  display: block;
+  margin-bottom: 8px; /* etwas Abstand unter Label */
+  font-weight: bold;
+  color: #34495e;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px; /* größerer Abstand unter Input */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px; /* Abstand über dem Button */
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+form button + button {
+  margin-top: 10px; /* Abstand zwischen zwei Buttons */
+}
+
+form button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+form button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+
+.entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* für responsive */
+  padding: 10px;
+  border-left: 6px solid #3498db; /* Originalfarbe */
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: #ffffff; /* Originalfarbe */
+  box-sizing: border-box;
+}
+
+.entry-text {
+  flex: 1 1 60%;
+  min-width: 200px;
+  font-size: 16px;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 10px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 100px;
+  margin-top: 0; /* kein Abstand oben, standard */
+}
+
+/* Buttons Styling (unverändert, Originalfarben) */
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 18px;
+  color: #3498db; /* Originalfarbe */
+  transition: color 0.3s;
+}
+
+.icon-button:hover {
+  color: #2980b9;
+}
+
+.icon-button.delete {
+  color: #e74c3c; /* Originalfarbe */
+}
+
+.icon-button.delete:hover {
+  color: #c0392b;
+}
+
+/* Responsive Anpassung für kleine Bildschirme */
+@media (max-width: 480px) {
+  .entry-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .entry-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px; /* etwas Abstand über Buttons */
+  }
+}
