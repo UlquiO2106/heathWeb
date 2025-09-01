@@ -26,7 +26,6 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "outputPath": "dist/blutdruck-tracker",
-            "baseHref": "/blutdruck-tracker/",
             "assets": [
               {
                 "glob": "**/*",
@@ -93,7 +92,19 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "configurations": {
+            "production": {
+              "baseHref": "/dist/",
+              "dir": "dist/blutdruck-tracker",
+              "branch": "gh-pages",
+              "dotfiles": false,
+              "silent": false,
+              "noJekyll": true,
+              "skipAppBuild": false,
+              "buildTarget": "blutdruck-tracker:build:production"
+            }
+          }
         }
       }
     }
