@@ -95,8 +95,8 @@
           "builder": "angular-cli-ghpages:deploy",
           "configurations": {
             "production": {
-              "baseHref": "/dist/",
-              "dir": "dist/blutdruck-tracker",
+              "baseHref": "/",
+              "dir": "/blutdruck-tracker",
               "branch": "gh-pages",
               "dotfiles": false,
               "silent": false,
