@@ -95,14 +95,22 @@
           "builder": "angular-cli-ghpages:deploy",
           "configurations": {
             "production": {
-              "baseHref": "/",
-              "dir": "/blutdruck-tracker",
+              "baseHref": "/blutdruck-tracker/",
               "branch": "gh-pages",
               "dotfiles": false,
               "silent": false,
               "noJekyll": true,
               "skipAppBuild": false,
-              "buildTarget": "blutdruck-tracker:build:production"
+              "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+              "styles": [
+                "src/custom-theme.scss",
+                "src/styles.css"
+              ]
             }
           }
         }
